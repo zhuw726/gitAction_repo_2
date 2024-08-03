@@ -1,0 +1,16 @@
+name: wf002
+on: push
+jobs:
+  test:
+    runs-on: uhuntu-latest
+    steps:
+      - name: get Code
+        uses: actions/checkout@v4
+      - name: install node18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run test
+        run: npm test
